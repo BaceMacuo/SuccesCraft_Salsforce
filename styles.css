@@ -30,3 +30,8 @@
     text-decoration: none;
     display: inline-block;
     font-size: 12px;}
+captcha{
+    text-align: center !important;
+    margin: 0 auto !important;
+    display: block;
+}
