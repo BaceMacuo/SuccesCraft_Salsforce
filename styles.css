@@ -1,18 +1,5 @@
-
-  label{
-    position: absolute;
-          top:0;
-          left:0;
-          height: 30px;
-          line-height: 30px;
-          color:#ccc;
-          cursor:text;
-          transition: all 200ms ease-out;
-          z-index:10;
-  }
-formstyl{
-    position: relative;
-    padding:44px 55px;
-    background: #fff;
-    z-index:10;
-}
+#formSel label {width: 150px; display: inline-block;}
+#formSel input {width: 200px;}
+#formSel span {width: 150px; display: inline-block;}
+#formSel select {width: 200px;}
+#formSel #buttonSel {width: 200px;}
