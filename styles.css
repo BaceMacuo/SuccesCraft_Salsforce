@@ -1,5 +1,32 @@
-#formSel label {width: 150px; display: inline-block;}
-#formSel input {width: 200px;}
-#formSel span {width: 150px; display: inline-block;}
-#formSel select {width: 200px;}
-#formSel #buttonSel {width: 200px;}
+#wrap {
+    border: 5px outset #F3F9EB;
+    background-color: #F3F9EB;
+    text-align: center;
+}
+#formSel label {width: 150px; 
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    color: #4CAF50;}
+#formSel input {width: 200px; 
+    padding: 6px 24px;
+    margin: 8px 0;
+    box-sizing: border-box;}
+#formSel span {width: 150px; 
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    color: #4CAF50;}
+#formSel select {width: 200px;
+    padding: 6px 24px;
+    margin: 8px 0;
+    box-sizing: border-box;}
+#formSel #buttonSel {background-color: #4CAF50;
+    border-radius: 8px; 
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;}
