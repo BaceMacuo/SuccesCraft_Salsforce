@@ -1,0 +1,52 @@
+public class createPriceBook {
+    
+    public static void createPricebookEntry(){
+        // Main
+        Pricebook2 pricebook = createPriceBook('Success Motors Price Book', 'This is the Price Book Company Success Motors.', true);
+        List<Product2> successProduct = getListProduct();
+        insertPricebook(pricebook, successProduct);
+    }
+    
+    public static Pricebook2 createPricebook(String Name, String Description, Boolean IsActive){
+        // Create Pricebook
+        Pricebook2 priceBook = new Pricebook2(
+            Name = Name,
+            Description = Description,
+            IsActive = IsActive
+        );
+        upsert priceBook;
+        return priceBook;
+    }
+    
+    public static List<Product2> getListProduct(){
+        // Create a Product list
+        List<Product2> successProduct = [SELECT Id FROM Product2 WHERE Type__c In('Car', 'Part', 'Accessory') ];
+        return successProduct;
+    }
+    
+    public static void insertPricebook(Pricebook2 priceBook, List<Product2> successProduct){
+        // Insert the Product in the New Price Book
+        Pricebook2 standardPB = [select id from Pricebook2 where isStandard=true];
+        List<PricebookEntry> standardPricebookEntry = new List<PricebookEntry>();
+        List<PricebookEntry> successPricebookEntry = new List<PricebookEntry>();
+        
+        for( Integer i = 0; i < successProduct.size(); i++ ) {
+            
+            PricebookEntry standardPBE = new PricebookEntry(
+                Pricebook2Id = standardPB.Id, 
+                Product2Id = successProduct[i].Id, 
+                UnitPrice = 1500, 
+                IsActive = true);
+            standardPricebookEntry.add(standardPBE);
+            PricebookEntry priceBookEntry = new PricebookEntry(
+                Product2Id = successProduct[i].Id,
+                Pricebook2Id = priceBook.Id,
+                UnitPrice = 1000.00 + Integer.valueof((Math.random() * 10000)),
+                IsActive = true
+        	);
+            successPricebookEntry.add(priceBookEntry);
+        }
+        upsert standardPricebookEntry;
+        upsert successPricebookEntry;
+    }
+}

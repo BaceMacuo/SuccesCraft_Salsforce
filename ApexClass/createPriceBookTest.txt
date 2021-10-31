@@ -1,0 +1,29 @@
+@isTest
+public class createPriceBookTest {
+    @isTest static void testPricebookEntry(){
+        
+        Product2 product = new Product2(
+            Name = 'Example Product',
+            Description = 'This is the Product description.',
+            ProductCode = 'EX1234',
+            StockKeepingUnit = 'EX5678',
+            Family = 'Example Product Family',
+            QuantityUnitOfMeasure = 'inches',
+            DisplayUrl = 'https://www.example.com/',
+            ExternalId = 'ID #1234',
+            //ExternalDataSourceId = '0XCXXXXXXXXXXXXXXX',
+            Type__c = 'Car'
+        );
+        
+        insert product;
+        
+        List<Product2> products=createPriceBook.getListProduct();
+        PriceBook2 pb2=createPriceBook.createPriceBook('Test', 'Test', true);
+        
+        createPriceBook.insertPricebook(pb2, products);
+        
+        System.assert(products.size()!=0);
+        System.assert(pb2!=null);
+        
+    }
+}
